@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Index desk · Research Deck</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <p class="eyebrow">Research Deck</p>
+    <h1>Index desk</h1>
+  </div>
+  <div class="top-meta">
+    <p id="asof">Loading daily closes…</p>
+    <p id="qwen" class="quiet"></p>
+  </div>
+</header>
+
+<main>
+  <section id="banner" class="banner" aria-live="polite">
+    <p id="status">The allocation model is training on the history it has. This page will fill in when that finishes.</p>
+  </section>
+
+  <section class="actions" id="actions" hidden>
+    <button type="button" id="refresh">Refresh closes</button>
+    <a class="button" href="/memo">Advisor memo</a>
+    <button type="button" id="copy">Copy allocation</button>
+  </section>
+
+  <div class="grid" id="workspace" hidden>
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Where to allocate</h2>
+        <p id="action" class="pill"></p>
+      </div>
+      <p id="action-note" class="quiet"></p>
+      <ul id="reasons" class="reasons"></ul>
+      <div id="bars" class="bars"></div>
+    </section>
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Industry tape</h2>
+        <p class="quiet">Last close, not a broker feed</p>
+      </div>
+      <div class="table-wrap">
+        <table id="industries">
+          <thead>
+            <tr><th>Industry</th><th>5 sessions</th><th>1 month</th><th class="optional">3 months</th><th>Weight</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel" id="chart-panel" hidden>
+    <div class="panel-head">
+      <h2>Out-of-sample track record</h2>
+      <p id="chart-legend" class="quiet"></p>
+    </div>
+    <svg id="chart" viewBox="0 0 800 280" role="img" aria-label="Growth of one dollar"></svg>
+  </section>
+
+  <section class="panel" id="board-panel" hidden>
+    <div class="panel-head">
+      <h2>Against each index</h2>
+      <p class="quiet">CAGR on the shared dates after the factor choice</p>
+    </div>
+    <div class="table-wrap">
+      <table id="board">
+        <thead>
+          <tr><th>Index</th><th>Index CAGR</th><th>Desk CAGR</th><th>Gap</th><th class="optional">Trailing 3-year gap</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" id="model-panel" hidden>
+    <div class="panel-head">
+      <h2>Local model</h2>
+      <p id="model-action" class="quiet"></p>
+    </div>
+    <p id="model-note"></p>
+    <p id="factors" class="factors"></p>
+    <div id="drivers"></div>
+  </section>
+
+  <section class="panel" id="copy-panel" hidden>
+    <h2>Text for the advisor</h2>
+    <pre id="copy-block"></pre>
+  </section>
+</main>
+
+<footer>
+  <p id="disclaimer"></p>
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>
